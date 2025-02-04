@@ -1,44 +1,57 @@
-﻿document.getElementById('bgColor').addEventListener('change', function() {
-    document.body.style.backgroundColor = this.value;
-});
-
-// Background Music Auto Play
-window.onload = function() {
-    document .getElementById('bgMusic').play();
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
 }
 
-;
-
-// Fetch Math Questions
-async function loadQuestions() {
-    let response = await fetch('/api/questions');
-    let data = await response.json();
-    let questionBox = document.getElementById("question-box");
-    let optionsContainer = document.getElementById("options");
-    let randomQuestion = data[Math.floor(Math.random() * data.length)];
-    questionBox .innerText = randomQuestion.question;
-    optionsContainer .innerHTML = '';
-    randomQuestion .answers.forEach((answer, index) => {
-        let btn = document.createElement("button");
-        btn.innerText = answer;
-        btn.onclick = () => checkAnswer(index, randomQuestion.correct);
-        optionsContainer.appendChild(btn);
-    });
+/* Background Video */
+#bgVideo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
 }
 
-function checkAnswer(selectedIndex, correctIndex) {
-    if (selectedIndex === correctIndex)
-
-{
-    alert("✅ Correct!");
-    document .getElementById("score").innerText++;
-    loadQuestions();
+/* Login Box */
+.login-container {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 20px;
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+    text-align: center;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
 }
 
-else {
-    alert("❌ Wrong! Try again.");
-}
+    .login-container input {
+        display: block;
+        width: 100%;
+        margin: 10px 0;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+    }
 
-}
+    .login-container button {
+        background: #27ae60;
+        color: white;
+        border: none;
+        padding: 10px;
+        width: 100%;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 18px;
+    }
 
-loadQuestions();
+#error-msg {
+    color: red;
+    margin-top: 10px;
+}
