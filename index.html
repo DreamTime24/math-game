@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GOD Level Math Game</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <!-- Background Video -->
+    <video autoplay loop muted id="bgVideo">
+        <source src="background.mp4" type="video/mp4">
+    </video>
+
+    <!-- Background Music -->
+    <audio id="bgMusic" loop>
+        <source src="music.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Background Change Panel -->
+    <div class="controls">
+        <label for="bgColor">Change Background:</label>
+        <select id="bgColor">
+            <option value="white">White</option>
+            <option value="black">Black</option>
+            <option value="green">Green</option>
+        </select>
+    </div>
+
+    <!-- Math Game UI -->
+    <div class="container">
+        <h1 class="title">🔥 GOD LEVEL MATH GAME 🔥</h1>
+        <div class="question-box" id="question-box">Loading...</div>
+        <div class="options" id="options"></div>
+        <div class="score-box">Score: <span id="score">0</span></div>
+    </div>
+
+    <!-- Math Icons with 3D Zoom Effect -->
+    <div class="icon-container">
+        <div class="icon" data-operation="add">➕</div>
+        <div class="icon" data-operation="subtract">➖</div>
+        <div class="icon" data-operation="multiply">✖</div>
+        <div class="icon" data-operation="divide">➗</div>
+    </div>
+</body>
+</html>
